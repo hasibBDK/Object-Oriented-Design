@@ -117,13 +117,16 @@ public class Main {
 
 
 
-/*Shape interface: Defines a contract for shapes to implement a method area() to calculate their area.
-Rectangle class: Implements the Shape interface and provides a method to calculate the area of
- a rectangle based on its width and height.
-Circle class: Also implements the Shape interface and provides a method to calculate the area 
-of a circle based on its radius.
-AreaCalculator class: Contains a method calculateTotalArea() which takes an array of Shape 
-objects and iterates through them, calculating the total area by calling the area() method for each shape.
-Main class: Demonstrates the usage of the Rectangle, Circle, and AreaCalculator classes.
- It creates instances of rectangle and circle shapes, adds them to an array of shapes, 
-calculates the total area using AreaCalculator, and prints the result.*/
+/** 
+ * Shape interface: Defines a contract for shapes to implement a method area() to calculate their area.
+ * Rectangle class: Implements the Shape interface and provides a method to calculate the area of
+ * a rectangle based on its width and height.
+ * Circle class: Also implements the Shape interface and provides a method to calculate the area 
+ * of a circle based on its radius.
+ * AreaCalculator class: Contains a method calculateTotalArea() which takes an array of Shape 
+ * objects and iterates through them, calculating the total area by calling the area() method for each shape.
+ * Main class: Demonstrates the usage of the Rectangle, Circle, and AreaCalculator classes.
+ * It creates instances of rectangle and circle shapes, adds them to an array of shapes, 
+ * calculates the total area using AreaCalculator, and prints the result.
+ 
+ */

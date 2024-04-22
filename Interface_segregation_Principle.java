@@ -145,13 +145,13 @@ public class Main {
 }
 
 
-/*
-We have two interfaces: BasicFunctionality for basic printer functionalities (printing and scanning)
- and AdvancedFunctionality for advanced functionalities (faxing and emailing).
-There are two classes implementing these interfaces: Printer implements only basic functionalities, 
-and MultifunctionPrinter implements both basic and advanced functionalities.
-We have client classes: BasicClient and AdvancedClient, each using only the functionalities they need.
- This adheres to ISP as clients are not forced to depend on interfaces they don't use.
-In the Main class, we create objects of BasicClient and AdvancedClient, passing appropriate
- implementations of interfaces based on their needs.
+/** 
+ * We have two interfaces: BasicFunctionality for basic printer functionalities (printing and scanning)
+ * and AdvancedFunctionality for advanced functionalities (faxing and emailing).
+ * There are two classes implementing these interfaces: Printer implements only basic functionalities, 
+ * and MultifunctionPrinter implements both basic and advanced functionalities.
+ * We have client classes: BasicClient and AdvancedClient, each using only the functionalities they need.
+ * This adheres to ISP as clients are not forced to depend on interfaces they don't use.
+ * In the Main class, we create objects of BasicClient and AdvancedClient, passing appropriate
+ * implementations of interfaces based on their needs.
 */

@@ -119,11 +119,14 @@ public class Main {
 
 
 
-/*We have an interface Device representing a device with methods to turn it on and off.
-LightBulb and Fan are concrete implementations of the Device interface.
-Switch is a high-level module representing a switch that can turn a device on and off. 
-It depends on the Device abstraction rather than concrete implementations.
-In the Main class, we demonstrate how a switch can be used to control both a 
-light bulb and a fan without directly depending on their concrete implementations.
- This adheres to the Dependency Inversion Principle.
+/**
+ * We have an interface Device representing a device with methods to turn it on and off.
+ * LightBulb and Fan are concrete implementations of the Device interface.
+ * Switch is a high-level module representing a switch that can turn a device on and off. 
+ * It depends on the Device abstraction rather than concrete implementations.
+ * In the Main class, we demonstrate how a switch can be used to control both a 
+ * light bulb and a fan without directly depending on their concrete implementations.
+ * This adheres to the Dependency Inversion Principle.
  */
+
+ 

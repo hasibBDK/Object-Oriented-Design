@@ -87,7 +87,7 @@ public class Main {
      * @param args The command-line arguments (not used in this example).
      */
     public static void main(String[] args) {
-        // Create an employee object with name "John Doe", ID "EMP001", and salary 50000.0
+        
         Employee employee = new Employee("John Doe", "EMP001", 50000.0);
 
         // Create an instance of EmployeeFormatter to format employee data
@@ -103,7 +103,7 @@ public class Main {
 /*
  * 
  * Employee class represents an employee and holds employee data.
-EmployeeFormatter class is responsible for formatting employee data.
-Main class contains the main method where we create an employee object,
+ * EmployeeFormatter class is responsible for formatting employee data.
+ * Main class contains the main method where we create an employee object,
 
  */

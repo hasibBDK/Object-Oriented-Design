@@ -144,12 +144,15 @@ public class Main {
     }
 }
 
-/*
-We have a Rectangle class with width and height properties, along with methods to get 
-and set these properties. It also has a method to calculate the area.
-Square class extends Rectangle. Since a square is a special case of a
- rectangle where all sides are equal, we override the setters to ensure 
- both width and height remain the same.
-In the Main class, we have a method useRectangle that takes a Rectangle as input, sets its height to 10, and calculates the area based on the new height. However, when we pass a Square object to this method, it doesn't behave as expected because modifying the height also changes the width, violating the LSP.
+/**
+ * We have a Rectangle class with width and height properties, along with methods to get 
+ * and set these properties. It also has a method to calculate the area.
+ * Square class extends Rectangle. Since a square is a special case of a
+ * rectangle where all sides are equal, we override the setters to ensure 
+ * both width and height remain the same.
+ * In the Main class, we have a method useRectangle that takes a Rectangle as input, sets its height to 10, 
+ * and calculates the area based on the new height. However, when we pass a Square object to this method, it
+ * doesn't behave as expected because modifying the height also changes the width, violating the LSP.
+ */
 
-*/
+
