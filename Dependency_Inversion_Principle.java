@@ -4,63 +4,103 @@
 //Undergrduate student, Khulna University.
 //-------------------------------------------------------------------------
 
+/**
+ * Interface representing a device.
+ */
 interface Device {
+    /**
+     * Turns on the device.
+     */
     void turnOn(); // Method to turn on the device
+
+    /**
+     * Turns off the device.
+     */
     void turnOff(); // Method to turn off the device
 }
 
-// Concrete implementation of a light bulb
+/**
+ * Concrete implementation of a light bulb.
+ */
 class LightBulb implements Device {
-    // Implementation of turnOn method for the light bulb
+    /**
+     * Turns on the light bulb.
+     */
     @Override
     public void turnOn() {
         System.out.println("LightBulb: Turning on...");
     }
 
-    // Implementation of turnOff method for the light bulb
+    /**
+     * Turns off the light bulb.
+     */
     @Override
     public void turnOff() {
         System.out.println("LightBulb: Turning off...");
     }
 }
 
-// Concrete implementation of a fan
+/**
+ * Concrete implementation of a fan.
+ */
 class Fan implements Device {
-    // Implementation of turnOn method for the fan
+    /**
+     * Turns on the fan.
+     */
     @Override
     public void turnOn() {
         System.out.println("Fan: Turning on...");
     }
 
-    // Implementation of turnOff method for the fan
+    /**
+     * Turns off the fan.
+     */
     @Override
     public void turnOff() {
         System.out.println("Fan: Turning off...");
     }
 }
 
-// High-level module representing a switch
+/**
+ * High-level module representing a switch.
+ */
 class Switch {
-    private Device device; // Reference to the device controlled by the switch
+    /** Reference to the device controlled by the switch. */
+    private Device device;
 
-    // Constructor to initialize the switch with a device
+    /**
+     * Constructs a switch with a device.
+     *
+     * @param device The device controlled by the switch.
+     */
     public Switch(Device device) {
         this.device = device;
     }
 
-    // Method to turn on the device
+    /**
+     * Turns on the device.
+     */
     public void turnOn() {
         device.turnOn(); // Call turnOn method of the device
     }
 
-    // Method to turn off the device
+    /**
+     * Turns off the device.
+     */
     public void turnOff() {
         device.turnOff(); // Call turnOff method of the device
     }
 }
 
-// Main class demonstrating the usage of switches to control devices
+/**
+ * Main class demonstrating the usage of switches to control devices.
+ */
 public class Main {
+    /**
+     * Main method.
+     *
+     * @param args The command-line arguments (not used in this example).
+     */
     public static void main(String[] args) {
         // Using a switch to control a light bulb
         Device lightBulb = new LightBulb(); // Create a light bulb device
@@ -75,6 +115,7 @@ public class Main {
         fanSwitch.turnOff(); // Turn off the fan
     }
 }
+
 
 
 

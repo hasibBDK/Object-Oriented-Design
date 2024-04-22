@@ -4,103 +4,143 @@
 //Undergrduate student, Khulna University.
 //-------------------------------------------------------------------------
 
-interface BasicFunctionality {
-    void print(); // Method to print
-    void scan(); // Method to scan
-}
+/**
+ * Class representing a rectangle.
+ */
+class Rectangle {
+    /** Width of the rectangle. */
+    protected int width;
 
-// Interface for advanced functionalities
-interface AdvancedFunctionality {
-    void fax(); // Method to fax
-    void email(); // Method to email
-}
+    /** Height of the rectangle. */
+    protected int height;
 
-// Printer class implementing BasicFunctionality interface
-class Printer implements BasicFunctionality {
-    // Implementation of print method
-    @Override
-    public void print() {
-        System.out.println("Printing...");
+    /** Default constructor. */
+    public Rectangle() {}
+
+    /**
+     * Constructor to initialize the rectangle with given width and height.
+     *
+     * @param width The width of the rectangle.
+     * @param height The height of the rectangle.
+     */
+    public Rectangle(int width, int height) {
+        this.width = width; // Initialize width
+        this.height = height; // Initialize height
     }
 
-    // Implementation of scan method
-    @Override
-    public void scan() {
-        System.out.println("Scanning...");
-    }
-}
-
-// MultifunctionPrinter class implementing both BasicFunctionality and AdvancedFunctionality interfaces
-class MultifunctionPrinter implements BasicFunctionality, AdvancedFunctionality {
-    // Implementation of print method
-    @Override
-    public void print() {
-        System.out.println("Printing...");
+    /**
+     * Getter method for retrieving the width of the rectangle.
+     *
+     * @return The width of the rectangle.
+     */
+    public int getWidth() {
+        return width; // Return width
     }
 
-    // Implementation of scan method
-    @Override
-    public void scan() {
-        System.out.println("Scanning...");
+    /**
+     * Setter method to set the width of the rectangle.
+     *
+     * @param width The width to set.
+     */
+    public void setWidth(int width) {
+        this.width = width; // Set width
     }
 
-    // Implementation of fax method
-    @Override
-    public void fax() {
-        System.out.println("Faxing...");
+    /**
+     * Getter method for retrieving the height of the rectangle.
+     *
+     * @return The height of the rectangle.
+     */
+    public int getHeight() {
+        return height; // Return height
     }
 
-    // Implementation of email method
-    @Override
-    public void email() {
-        System.out.println("Emailing...");
-    }
-}
-
-// Client class using only basic functionalities
-class BasicClient {
-    private BasicFunctionality basicFunctionality; // Reference to basic functionality
-
-    // Constructor to initialize with basic functionality
-    public BasicClient(BasicFunctionality basicFunctionality) {
-        this.basicFunctionality = basicFunctionality;
+    /**
+     * Setter method to set the height of the rectangle.
+     *
+     * @param height The height to set.
+     */
+    public void setHeight(int height) {
+        this.height = height; // Set height
     }
 
-    // Method to perform basic functions
-    public void performBasicFunctions() {
-        basicFunctionality.print(); // Call print method
-        basicFunctionality.scan(); // Call scan method
-    }
-}
-
-// Client class using advanced functionalities
-class AdvancedClient {
-    private AdvancedFunctionality advancedFunctionality; // Reference to advanced functionality
-
-    // Constructor to initialize with advanced functionality
-    public AdvancedClient(AdvancedFunctionality advancedFunctionality) {
-        this.advancedFunctionality = advancedFunctionality;
-    }
-
-    // Method to perform advanced functions
-    public void performAdvancedFunctions() {
-        advancedFunctionality.fax(); // Call fax method
-        advancedFunctionality.email(); // Call email method
+    /**
+     * Method to calculate the area of the rectangle.
+     *
+     * @return The area of the rectangle.
+     */
+    public int getArea() {
+        return width * height; // Calculate and return area
     }
 }
 
-// Main class demonstrating usage of the functionality
+/**
+ * Class representing a square, extending Rectangle.
+ */
+class Square extends Rectangle {
+    /** Default constructor. */
+    public Square() {}
+
+    /**
+     * Constructor to initialize the square with given size.
+     *
+     * @param size The size of the square.
+     */
+    public Square(int size) {
+        width = size; // Set width as size
+        height = size; // Set height as size
+    }
+
+    /**
+     * Override the setWidth method to ensure square properties are maintained.
+     *
+     * @param width The width to set.
+     */
+    @Override
+    public void setWidth(int width) {
+        super.setWidth(width); // Set width of square
+        super.setHeight(width); // Set height of square
+    }
+
+    /**
+     * Override the setHeight method to ensure square properties are maintained.
+     *
+     * @param height The height to set.
+     */
+    @Override
+    public void setHeight(int height) {
+        super.setWidth(height); // Set width of square
+        super.setHeight(height); // Set height of square
+    }
+}
+
+/**
+ * Main class demonstrating the usage of Rectangle and Square classes.
+ */
 public class Main {
+    /**
+     * Method to demonstrate using a rectangle.
+     *
+     * @param r The rectangle to use.
+     */
+    static void useRectangle(Rectangle r) {
+        int width = r.getWidth(); // Get the width of the rectangle
+        r.setHeight(10); // Set the height of the rectangle to 10
+        // Print the expected and actual area of the rectangle
+        System.out.println("Expected area = " + (width * 10) + ", Actual area = " + r.getArea());
+    }
+
+    /**
+     * Main method.
+     *
+     * @param args The command-line arguments (not used in this example).
+     */
     public static void main(String[] args) {
-        // Creating objects for BasicClient and AdvancedClient
-        BasicClient basicClient = new BasicClient(new Printer());
-        AdvancedClient advancedClient = new AdvancedClient(new MultifunctionPrinter());
+        Rectangle rect = new Rectangle(5, 5); // Create a rectangle with width 5 and height 5
+        useRectangle(rect); // Expected area = 50, Actual area = 50
 
-        // Basic client performing basic functionalities
-        basicClient.performBasicFunctions();
-
-        // Advanced client performing advanced functionalities
-        advancedClient.performAdvancedFunctions();
+        Rectangle square = new Square(5); // Create a square with size 5
+        useRectangle(square); // Expected area = 50, Actual area = 100
     }
 }
 

@@ -5,49 +5,87 @@
 //-------------------------------------------------------------------------
 
 
+/**
+ * Represents an employee with name, ID, and salary.
+ */
 public class Employee {
 
-    // Private instance variables for employee's name, id, and salary
+    /** The name of the employee. */
     private String name;
+
+    /** The ID of the employee. */
     private String id;
+
+    /** The salary of the employee. */
     private double salary;
 
-    // Constructor to initialize the Employee object with provided values
+    /**
+     * Constructs an Employee object with the specified name, ID, and salary.
+     *
+     * @param name The name of the employee.
+     * @param id The ID of the employee.
+     * @param salary The salary of the employee.
+     */
     public Employee(String name, String id, double salary) {
         this.name = name;
         this.id = id;
         this.salary = salary;
     }
 
-    // Getter method for retrieving the employee's name
+    /**
+     * Retrieves the name of the employee.
+     *
+     * @return The name of the employee.
+     */
     public String getName() {
         return name;
     }
 
-    // Getter method for retrieving the employee's ID
+    /**
+     * Retrieves the ID of the employee.
+     *
+     * @return The ID of the employee.
+     */
     public String getId() {
         return id;
     }
 
-    // Getter method for retrieving the employee's salary
+    /**
+     * Retrieves the salary of the employee.
+     *
+     * @return The salary of the employee.
+     */
     public double getSalary() {
         return salary;
     }
 }
 
-
-// Definition of the EmployeeFormatter class
+/**
+ * Formats employee data into a string.
+ */
 public class EmployeeFormatter {
 
-    // Method to format employee data as a string
+    /**
+     * Formats employee data into a string.
+     *
+     * @param employee The employee object to format.
+     * @return A string containing the formatted employee data.
+     */
     public String formatEmployeeData(Employee employee) {
         return "Name: " + employee.getName() + ", ID: " + employee.getId() + ", Salary: " + employee.getSalary();
     }
 }
 
-// Main class containing the main method to demonstrate usage of the classes
+/**
+ * Main class containing the main method to demonstrate usage of the classes.
+ */
 public class Main {
 
+    /**
+     * Main method to demonstrate usage of the classes.
+     *
+     * @param args The command-line arguments (not used in this example).
+     */
     public static void main(String[] args) {
         // Create an employee object with name "John Doe", ID "EMP001", and salary 50000.0
         Employee employee = new Employee("John Doe", "EMP001", 50000.0);
