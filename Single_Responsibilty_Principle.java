@@ -100,10 +100,10 @@ public class Main {
 }
 
 
-/*
- * 
+/**
  * Employee class represents an employee and holds employee data.
  * EmployeeFormatter class is responsible for formatting employee data.
  * Main class contains the main method where we create an employee object,
-
+ * 
  */
+ 
