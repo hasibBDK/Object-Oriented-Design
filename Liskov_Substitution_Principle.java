@@ -1,158 +1,162 @@
-//-------------------------------------------------------------------------
-//Title : A java programme to demonstrate Liskov Substitution Principle.
-// Author : Hasibur Rahaman,Student Id : 220227
-//Undergrduate student, Khulna University.
-//-------------------------------------------------------------------------
+/**
+ * Interface representing a shape.
+ */
+interface Shape {
+    /**
+     * Calculates the area of the shape.
+     *
+     * @return The area of the shape.
+     */
+    double area();
+}
 
 /**
  * Class representing a rectangle.
  */
-class Rectangle {
+class Rectangle implements Shape {
     /** Width of the rectangle. */
-    protected int width;
+    private double width;
 
     /** Height of the rectangle. */
-    protected int height;
-
-    /** Default constructor. */
-    public Rectangle() {}
+    private double height;
 
     /**
-     * Constructor to initialize the rectangle with given width and height.
+     * Constructs a rectangle with the given width and height.
      *
      * @param width The width of the rectangle.
      * @param height The height of the rectangle.
      */
-    public Rectangle(int width, int height) {
-        this.width = width; // Initialize width
-        this.height = height; // Initialize height
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
     }
 
     /**
-     * Getter method for retrieving the width of the rectangle.
+     * Gets the width of the rectangle.
      *
      * @return The width of the rectangle.
      */
-    public int getWidth() {
-        return width; // Return width
+    public double getWidth() {
+        return width;
     }
 
     /**
-     * Setter method to set the width of the rectangle.
+     * Sets the width of the rectangle.
      *
      * @param width The width to set.
      */
-    public void setWidth(int width) {
-        this.width = width; // Set width
+    public void setWidth(double width) {
+        this.width = width;
     }
 
     /**
-     * Getter method for retrieving the height of the rectangle.
+     * Gets the height of the rectangle.
      *
      * @return The height of the rectangle.
      */
-    public int getHeight() {
-        return height; // Return height
+    public double getHeight() {
+        return height;
     }
 
     /**
-     * Setter method to set the height of the rectangle.
+     * Sets the height of the rectangle.
      *
      * @param height The height to set.
      */
-    public void setHeight(int height) {
-        this.height = height; // Set height
+    public void setHeight(double height) {
+        this.height = height;
     }
 
     /**
-     * Method to calculate the area of the rectangle.
+     * Calculates the area of the rectangle.
      *
      * @return The area of the rectangle.
      */
-    public int getArea() {
-        return width * height; // Calculate and return area
+    @Override
+    public double area() {
+        return width * height;
     }
 }
 
 /**
- * Class representing a square, extending Rectangle.
+ * Class representing a square, which is a special case of a rectangle.
  */
-class Square extends Rectangle {
-    /** Default constructor. */
-    public Square() {}
+class Square implements Shape {
+    /** Length of the side of the square. */
+    private double sideLength;
 
     /**
-     * Constructor to initialize the square with given size.
+     * Constructs a square with the given side length.
      *
-     * @param size The size of the square.
+     * @param sideLength The length of the side of the square.
      */
-    public Square(int size) {
-        width = size; // Set width as size
-        height = size; // Set height as size
+    public Square(double sideLength) {
+        this.sideLength = sideLength;
     }
 
     /**
-     * Override the setWidth method to ensure square properties are maintained.
+     * Gets the side length of the square.
      *
-     * @param width The width to set.
+     * @return The side length of the square.
      */
-    @Override
-    public void setWidth(int width) {
-        super.setWidth(width); // Set width of square
-        super.setHeight(width); // Set height of square
+    public double getSideLength() {
+        return sideLength;
     }
 
     /**
-     * Override the setHeight method to ensure square properties are maintained.
+     * Sets the side length of the square.
      *
-     * @param height The height to set.
+     * @param sideLength The side length to set.
+     */
+    public void setSideLength(double sideLength) {
+        this.sideLength = sideLength;
+    }
+
+    /**
+     * Calculates the area of the square.
+     *
+     * @return The area of the square.
      */
     @Override
-    public void setHeight(int height) {
-        super.setWidth(height); // Set width of square
-        super.setHeight(height); // Set height of square
+    public double area() {
+        return sideLength * sideLength;
     }
 }
 
 /**
- * Main class demonstrating the usage of Rectangle and Square classes.
+ * Main class to demonstrate the usage of shapes.
  */
 public class Main {
     /**
-     * Method to demonstrate using a rectangle.
+     * Calculates and prints the area of a shape.
      *
-     * @param r The rectangle to use.
+     * @param shape The shape for which to calculate the area.
      */
-    static void useRectangle(Rectangle r) {
-        int width = r.getWidth(); // Get the width of the rectangle
-        r.setHeight(10); // Set the height of the rectangle to 10
-        // Print the expected and actual area of the rectangle
-        System.out.println("Expected area = " + (width * 10) + ", Actual area = " + r.getArea());
+    static void printArea(Shape shape) {
+        System.out.println("Area: " + shape.area());
     }
 
     /**
      * Main method.
      *
-     * @param args The command-line arguments (not used in this example).
+     * @param args The command-line arguments (not used).
      */
     public static void main(String[] args) {
-        Rectangle rect = new Rectangle(5, 5); // Create a rectangle with width 5 and height 5
-        useRectangle(rect); // Expected area = 50, Actual area = 50
+        Rectangle rectangle = new Rectangle(5, 10);
+        printArea(rectangle); // Output: Area: 50
 
-        Rectangle square = new Square(5); // Create a square with size 5
-        useRectangle(square); // Expected area = 50, Actual area = 100
+        Square square = new Square(5);
+        printArea(square); // Output: Area: 25
     }
 }
 
+
 /**
- * We have a Rectangle class with width and height properties, along with methods to get 
- * and set these properties. It also has a method to calculate the area.
- * Square class extends Rectangle. Since a square is a special case of a
- * rectangle where all sides are equal, we override the setters to ensure 
- * both width and height remain the same.
- * In the Main class, we have a method useRectangle that takes a Rectangle as input, sets its height to 10, 
- * and calculates the area based on the new height. However, when we pass a Square object to this method, it
- * doesn't behave as expected because modifying the height also changes the width, violating the LSP.
+ * In this example, both Rectangle and Square implement the Shape interface, which specifies
+ *  a common behavior for calculating the area of a shape. The Square class is a subclass of 
+ * the Rectangle class, but it does not override any behavior of its superclass. Instead, it 
+ * provides its own implementation of the area calculation that is specific to a square. When 
+ * used polymorphically, objects of both Rectangle and Square classes can be substituted
+ *  interchangeably without affecting the correctness of the program, thus adhering to the 
+ * Liskov Substitution Principle.
  */
-
-
