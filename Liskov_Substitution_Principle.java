@@ -1,3 +1,10 @@
+//-------------------------------------------------------------------------
+//Title : A java programme to Liskov Substitution Principle.
+// Author : Hasibur Rahaman,Student Id : 220227
+//Undergrduate student, Khulna University.
+//-------------------------------------------------------------------------
+
+
 /**
  * Interface representing a shape.
  */
